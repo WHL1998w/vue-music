@@ -1,53 +1,106 @@
 <template>
-  <!-- <div>
-    <van-tabs v-model="active">
-      <van-tab title="标签 1">内容 1</van-tab>
-      <van-tab title="标签 2">内容 2</van-tab>
-      <van-tab title="标签 3">内容 3</van-tab>
-      <van-tab title="标签 4">内容 4</van-tab>
-    </van-tabs>
-    <div>
-      <router-view></router-view>
+  <div id="appheader">
+    <div class="flex">
+      <div class="icon">
+        <van-cell @click="showPopup">
+          <van-icon name="wap-nav" />
+        </van-cell>
+        <van-popup v-model="show" round position="left" :style="{ width: '70%', height: '100%' }">
+          <sidebar />
+        </van-popup>
+      </div>
+      <div class="title">VUE-MUSIC</div>
+      <div class="icon">
+        <router-link to="/search">
+          <van-icon name="search" />
+        </router-link>
+      </div>
     </div>
-  </div> -->
-  <div class="bottomBox">
-    <van-tabbar route>
-      <van-tabbar-item
-        replace
-        to="/about"
-        icon="home-o"
-      >
-        标签
-      </van-tabbar-item>
-      <van-tabbar-item
-        replace
-        to="/test"
-        icon="search"
-      >
-        标签
-      </van-tabbar-item>
-    </van-tabbar>
-    <router-view />
+    <div class="wrap">
+      <van-row>
+        <router-link to="/sheet" tag="div">
+          <van-col>推荐</van-col>
+        </router-link>
+        <router-link to="/ranking" tag="div">
+          <van-col>排行榜</van-col>
+        </router-link>
+        <router-link to="/singer" tag="div">
+          <van-col>歌手</van-col>
+        </router-link>
+      </van-row>
+    </div>
+    <div class="cover">
+      <keep-alive>
+        <sheet></sheet>
+        <router-view></router-view>
+      </keep-alive>
+      <appfooter></appfooter>
+    </div>
   </div>
 </template>
 
 <script>
+import sheet from '../components/Gedan/Sheet'
+import appfooter from '../components/Footer'
+import sidebar from '../components/Popup/Sidebar'
 export default {
-  name: 'Home',
-  data() {
-    return { active: 2 }
+  name: 'appheader',
+  components: {
+    sidebar,
+    appfooter,
+    sheet
   },
-  components: {},
-  created() {},
-  mounted() {},
-  methods: {},
-  computed: {}
+  data() {
+    return {
+      active: 1,
+      show: false
+    }
+  },
+  methods: {
+    showPopup() {
+      this.show = true
+    }
+  }
 }
 </script>
+<style scoped>
+.flex {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgb(210, 69, 55);
+}
+.icon .van-cell {
+  background: rgb(210, 69, 55);
+}
+.icon i {
+  font-size: 2rem;
+  cursor: pointer;
+}
+.title {
+  font-weight: 600;
+  color: #ffffff;
+}
+.wrap {
+  width: 100%;
+  background: rgb(210, 69, 55);
+  font-size: 0.8rem;
+  height: 2rem;
+}
+.van-row {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  color: #ffffff;
+}
+.van-row div {
+  margin-left: 1.5rem;
+}
 
-<style scoped lang="scss">
-.bottomBox {
-  position: sticky;
-  bottom: 0px;
+.cover {
+  height: 100vh;
+  width: 100%;
+  margin-top: 3rem;
 }
 </style>

@@ -1,13 +1,6 @@
 <template>
   <div id="navigation">
-    <van-nav-bar
-      :title="title"
-      left-text="返回"
-      right-text="首页"
-      left-arrow
-      @click-left="onClickLeft"
-      @click-right="onClickRight"
-    />
+    <van-nav-bar :title="title" left-text="返回" right-text="首页" left-arrow @click-left="onClickLeft" @click-right="onClickRight" />
     <!-- :right-text="search" -->
   </div>
 </template>
@@ -23,7 +16,7 @@ export default {
     },
     // 返回首页
     onClickRight() {
-      this.$router.push('/sheet')
+      this.$router.push('/home')
     }
   }
 }

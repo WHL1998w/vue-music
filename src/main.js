@@ -2,7 +2,6 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-
 Vue.use(store)
 // axios
 import axios from 'axios'
@@ -16,7 +15,21 @@ import 'vant/lib/index.css'
 // import { Lazyload } from 'vant';
 Vue.use(Vant)
 
+// 懒加载
+import Vuelazyload from 'vue-lazyload'
+Vue.use(Vuelazyload, {
+  error: require('./assets/error.jpg'),
+  loading: require('./assets/loading.gif')
+})
+
+// animation动画库
+import animate from 'animate.css'
+Vue.use(animate)
 Vue.config.productionTip = false
+
+//Dialog
+import { Dialog } from 'vant'
+Vue.use(Dialog)
 
 new Vue({
   router,

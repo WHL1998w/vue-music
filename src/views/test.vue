@@ -1,7 +1,5 @@
 <template>
-  <div>
-    这是标签二
-  </div>
+  <div></div>
 </template>
 
 <script>
@@ -18,5 +16,4 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
-</style>
+<style scoped lang="scss"></style>

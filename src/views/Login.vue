@@ -42,6 +42,7 @@ export default {
         })
       } else {
         this.axios.get('/login/cellphone?phone=' + this.phone + '&password=' + this.password).then((res) => {
+          console.log(res)
           this.$store.state.uid = res.data.account.id
           // 存入sessionStorage 防止刷新数据消失
           let id = JSON.stringify(res.data.account.id)
