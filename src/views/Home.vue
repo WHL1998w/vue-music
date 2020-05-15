@@ -31,7 +31,6 @@
     </div>
     <div class="cover">
       <keep-alive>
-        <sheet></sheet>
         <router-view></router-view>
       </keep-alive>
       <appfooter></appfooter>
@@ -40,15 +39,13 @@
 </template>
 
 <script>
-import sheet from '../components/Gedan/Sheet'
 import appfooter from '../components/Footer'
 import sidebar from '../components/Popup/Sidebar'
 export default {
   name: 'appheader',
   components: {
     sidebar,
-    appfooter,
-    sheet
+    appfooter
   },
   data() {
     return {
