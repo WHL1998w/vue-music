@@ -51,6 +51,11 @@ const routes = [
     name: 'User',
     component: () => import(/* webpackChunkName: "about" */ '../views/User.vue')
   },
+  {
+    path: '/message',
+    name: 'Message',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Message.vue')
+  },
   // 公共组件
   {
     path: '/detail',

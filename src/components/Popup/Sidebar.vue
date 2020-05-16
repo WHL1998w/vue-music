@@ -2,7 +2,9 @@
   <div id="sidebar">
     <div class="header">
       <div class="img">
-        <img ref="img" :src="user.avatarUrl" alt />
+        <router-link to="/message">
+          <img ref="img" :src="user.avatarUrl" alt />
+        </router-link>
       </div>
       <div ref="name" class="name">{{ user.signature }}</div>
     </div>
