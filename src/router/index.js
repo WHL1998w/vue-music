@@ -41,6 +41,23 @@ const routes = [
   { path: '/sheet/:id', component: () => import('../components/Gedan/Sheetdetails.vue') },
   // 排行榜详情
   { path: '/ranking/:id', component: () => import('../components/Ranking/Rankingdetail.vue') },
+  //歌手详情
+  {
+    path: '/singer/:id',
+    component: () => import('../components/Singer/Singerdetail.vue'),
+    children: [
+      { path: '/personaldetail', component: () => import('../components/Singer/Singerdetail/Personal.vue') },
+      { path: '/mv', component: () => import('../components/Singer/Singerdetail/Mv.vue') },
+      { path: '/hotsong', component: () => import('../components/Singer/Singerdetail/Hotsong.vue') },
+      { path: '/album', component: () => import('../components/Singer/Singerdetail/Album.vue') },
+      { path: '/resolve', component: () => import('../components/Singer/Singerdetail/Resolve.vue') }
+    ]
+  },
+  // 专辑详情
+  { path: '/album/:id', component: () => import('../components/Common/Albumdetail.vue') },
+  // 视频详情
+  { path: '/videoplay/:id', component: () => import('../components/Common/Videoplay.vue') },
+  { path: '/videoplay2/:id', component: () => import('../components/Common/Videoplay2.vue') },
   {
     path: '/register',
     name: 'Register',
